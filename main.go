@@ -21,7 +21,7 @@ func main() {
 	r.GET("/logout", logout)
 	private := r.Group("/private")
 	{
-		private.GET("/", private)
+		private.GET("/", private1)
 		private.GET("/two", private2)
 	}
 	private.Use(AuthRequired())
@@ -77,7 +77,9 @@ func logout(c *gin.Context) {
 	}
 }
 
-func private(c *gin.Context) {
+func private1(c *gin.Context) {
+	session := sessions.Default(c)
+	user := session.Get("user")
 	c.JSON(http.StatusOK, gin.H{"hello": user})
 }
 
