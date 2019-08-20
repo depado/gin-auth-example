@@ -1,2 +1,3 @@
 # gin-auth-example
-An attempt at authentication with Gin
+
+Simple example on how to implement authentication logic with Gin

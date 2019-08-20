@@ -9,80 +9,97 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const (
+	userkey = "user"
+)
+
 // Thanks to otraore for the code example
 // https://gist.github.com/otraore/4b3120aa70e1c1aa33ba78e886bb54f3
 
 func main() {
-	r := gin.Default()
-	store := sessions.NewCookieStore([]byte("secret"))
-	r.Use(sessions.Sessions("mysession", store))
+	r := engine()
+	r.Use(gin.Logger())
+	if err := engine().Run(":8080"); err != nil {
+		log.Fatal("Unable to start:", err)
+	}
+}
 
+func engine() *gin.Engine {
+	r := gin.New()
+	r.Use(sessions.Sessions("mysession", sessions.NewCookieStore([]byte("secret"))))
 	r.POST("/login", login)
 	r.GET("/logout", logout)
+
 	private := r.Group("/private")
+	private.Use(AuthRequired)
 	{
-		private.GET("/", private1)
-		private.GET("/two", private2)
+		private.GET("/me", me)
+		private.GET("/status", status)
 	}
-	private.Use(AuthRequired())
-	r.Run(":8080")
+	return r
 }
 
-func AuthRequired() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		session := sessions.Default(c)
-		user := session.Get("user")
-		if user == nil {
-			// You'd normally redirect to login page
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid session token"})
-		} else {
-			// Continue down the chain to handler etc
-			c.Next()
-		}
+// AuthRequired is a simple middleware to check the session
+func AuthRequired(c *gin.Context) {
+	session := sessions.Default(c)
+	user := session.Get(userkey)
+	if user == nil {
+		// Abort the request with the appropriate error code
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
+		return
 	}
+	// Continue down the chain to handler etc
+	c.Next()
 }
 
+// login is a handler that parses a form and checks for specific data
 func login(c *gin.Context) {
 	session := sessions.Default(c)
 	username := c.PostForm("username")
 	password := c.PostForm("password")
 
+	// Validate form input
 	if strings.Trim(username, " ") == "" || strings.Trim(password, " ") == "" {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "Parameters can't be empty"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Parameters can't be empty"})
 		return
 	}
-	if username == "hello" && password == "itsme" {
-		session.Set("user", username) //In real world usage you'd set this to the users ID
-		err := session.Save()
-		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate session token"})
-		} else {
-			c.JSON(http.StatusOK, gin.H{"message": "Successfully authenticated user"})
-		}
-	} else {
+
+	// Check for username and password match, usually from a database
+	if username != "hello" || password != "itsme" {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Authentication failed"})
+		return
 	}
+
+	// Save the username in the session
+	session.Set(userkey, username) // In real world usage you'd set this to the users ID
+	if err := session.Save(); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to save session"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"message": "Successfully authenticated user"})
 }
 
 func logout(c *gin.Context) {
 	session := sessions.Default(c)
-	user := session.Get("user")
+	user := session.Get(userkey)
 	if user == nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid session token"})
-	} else {
-		log.Println(user)
-		session.Delete("user")
-		session.Save()
-		c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
+		return
 	}
+	session.Delete(userkey)
+	if err := session.Save(); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to save session"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
 }
 
-func private1(c *gin.Context) {
+func me(c *gin.Context) {
 	session := sessions.Default(c)
-	user := session.Get("user")
-	c.JSON(http.StatusOK, gin.H{"hello": user})
+	user := session.Get(userkey)
+	c.JSON(http.StatusOK, gin.H{"user": user})
 }
 
-func private2(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"hello": "Logged in user"})
+func status(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"status": "You are logged in"})
 }
