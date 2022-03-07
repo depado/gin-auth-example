@@ -9,9 +9,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const (
-	userkey = "user"
-)
+const userkey = "user"
+
+var secret = []byte("secret")
 
 // Thanks to otraore for the code example
 // https://gist.github.com/otraore/4b3120aa70e1c1aa33ba78e886bb54f3
@@ -26,10 +26,15 @@ func main() {
 
 func engine() *gin.Engine {
 	r := gin.New()
-	r.Use(sessions.Sessions("mysession", sessions.NewCookieStore([]byte("secret"))))
+
+	// Setup the cookie store for session management
+	r.Use(sessions.Sessions("mysession", sessions.NewCookieStore(secret)))
+
+	// Login and logout routes
 	r.POST("/login", login)
 	r.GET("/logout", logout)
 
+	// Private group, require authentication to access
 	private := r.Group("/private")
 	private.Use(AuthRequired)
 	{

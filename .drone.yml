@@ -1,0 +1,59 @@
+---
+kind: pipeline
+type: docker
+name: backend
+
+steps:
+  - name: fetch
+    image: docker:git
+    commands:
+      - git fetch --tags
+
+  - name: build
+    image: golang:latest
+    volumes:
+      - name: deps
+        path: /go
+    commands:
+      - go build
+
+  - name: test
+    image: golang:latest
+    volumes:
+      - name: deps
+        path: /go
+    commands:
+      - go test
+
+  - name: linter
+    image: golang:latest
+    volumes:
+      - name: deps
+        path: /go
+    commands:
+      - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s v1.44.2
+      - ./bin/golangci-lint run --timeout 5m
+      - rm -r ./bin/
+
+  - name: telegram
+    image: appleboy/drone-telegram
+    settings:
+      to: 790376882
+      format: markdown
+      token:
+        from_secret: telegram_token
+      message: >
+        *{{repo.name}}*  
+
+        [Build {{build.number}}]({{build.link}}) by {{commit.author}} {{#success build.status}}succeeded{{else}}failed{{/success}} in {{since build.started}} 
+
+        `{{truncate commit.sha 8}}`: "{{commit.message}}"
+    when:
+      status:
+      - success
+      - failure
+
+volumes:
+  - name: deps
+    host:
+      path: /var/lib/cache/godeps/
