@@ -31,7 +31,7 @@ steps:
       - name: deps
         path: /go
     commands:
-      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.44.2
+      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s
       - ./bin/golangci-lint run --timeout 5m
       - rm -r ./bin/
 
@@ -42,12 +42,6 @@ steps:
       format: markdown
       token:
         from_secret: telegram_token
-      message: >
-        *{{repo.name}}*  
-
-        [Build {{build.number}}]({{build.link}}) by {{commit.author}} {{#success build.status}}succeeded{{else}}failed{{/success}} in {{since build.started}} 
-
-        `{{truncate commit.sha 8}}`: "{{commit.message}}"
     when:
       status:
       - success
