@@ -1,5 +1,6 @@
 github.com/alecthomas/assert v1.0.0 h1:3XmGh/PSuLzDbK3W2gUbRXwgW5lqPkuqvRgeQ30FI5o=
 github.com/alecthomas/assert v1.0.0/go.mod h1:va/d2JC+M7F6s+80kl/R3G7FUiW6JzUO+hPhLyJ36ZY=
+github.com/alecthomas/assert/v2 v2.2.1/go.mod h1:pXcQ2Asjp247dahGEmsZ6ru0UVwnkhktn7S0bBDLxvQ=
 github.com/alecthomas/colour v0.1.0 h1:nOE9rJm6dsZ66RGWYSFrXw461ZIt9A6+nHgL7FRrDUk=
 github.com/alecthomas/colour v0.1.0/go.mod h1:QO9JBoKquHd+jz9nshCh40fOfO+JzsoXy8qTHF68zU0=
 github.com/alecthomas/repr v0.2.0 h1:HAzS41CIzNW5syS8Mf9UwXhNH1J9aix/BvDRf1Ml2Yk=
