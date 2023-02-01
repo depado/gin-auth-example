@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/alecthomas/assert v1.0.0
+	github.com/alecthomas/assert/v2 v2.2.1
 	github.com/appleboy/gofight/v2 v2.1.2
 	github.com/buger/jsonparser v1.1.1
 	github.com/gin-gonic/gin v1.8.2
