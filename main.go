@@ -7,7 +7,6 @@ import (
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -46,7 +45,7 @@ func engine() *gin.Engine {
 	return r
 }
 
-// AuthRequired is a simple middleware to check the session
+// AuthRequired is a simple middleware to check the session.
 func AuthRequired(c *gin.Context) {
 	session := sessions.Default(c)
 	user := session.Get(userkey)
@@ -59,7 +58,7 @@ func AuthRequired(c *gin.Context) {
 	c.Next()
 }
 
-// login is a handler that parses a form and checks for specific data
+// login is a handler that parses a form and checks for specific data.
 func login(c *gin.Context) {
 	session := sessions.Default(c)
 	username := c.PostForm("username")
@@ -86,6 +85,7 @@ func login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Successfully authenticated user"})
 }
 
+// logout is the handler called for the user to log out.
 func logout(c *gin.Context) {
 	session := sessions.Default(c)
 	user := session.Get(userkey)
@@ -101,12 +101,15 @@ func logout(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
 }
 
+// me is the handler that will return the user information stored in the
+// session.
 func me(c *gin.Context) {
 	session := sessions.Default(c)
 	user := session.Get(userkey)
 	c.JSON(http.StatusOK, gin.H{"user": user})
 }
 
+// status is the handler that will tell the user whether it is logged in or not.
 func status(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "You are logged in"})
 }
