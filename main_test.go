@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/alecthomas/assert"
+	"github.com/alecthomas/assert/v2"
 	"github.com/appleboy/gofight/v2"
 	"github.com/buger/jsonparser"
 	"github.com/gin-gonic/gin"
