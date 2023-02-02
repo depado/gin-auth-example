@@ -5,7 +5,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/gin-gonic/contrib/sessions"
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -28,7 +30,7 @@ func engine() *gin.Engine {
 	r := gin.New()
 
 	// Setup the cookie store for session management
-	r.Use(sessions.Sessions("mysession", sessions.NewCookieStore(secret)))
+	r.Use(sessions.Sessions("mysession", cookie.NewStore(secret)))
 
 	// Login and logout routes
 	r.POST("/login", login)
