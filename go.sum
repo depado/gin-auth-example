@@ -16,6 +16,8 @@ github.com/alecthomas/assert/v2 v2.8.1 h1:YCxnYR6jjpfnEK5AK5SysALKdUEBPGH4Y7As6t
 github.com/alecthomas/assert/v2 v2.8.1/go.mod h1:Bze95FyfUr7x34QZrjL+XP+0qgp/zg8yS+TtBj1WA3k=
 github.com/alecthomas/assert/v2 v2.9.0 h1:ZcLG8ccMEtlMLkLW4gwGpBWBb0N8MUCmsy1lYBVd1xQ=
 github.com/alecthomas/assert/v2 v2.9.0/go.mod h1:Bze95FyfUr7x34QZrjL+XP+0qgp/zg8yS+TtBj1WA3k=
+github.com/alecthomas/assert/v2 v2.10.0 h1:jjRCHsj6hBJhkmhznrCzoNpbA3zqy0fYiUcYZP/GkPY=
+github.com/alecthomas/assert/v2 v2.10.0/go.mod h1:Bze95FyfUr7x34QZrjL+XP+0qgp/zg8yS+TtBj1WA3k=
 github.com/alecthomas/repr v0.2.0 h1:HAzS41CIzNW5syS8Mf9UwXhNH1J9aix/BvDRf1Ml2Yk=
 github.com/alecthomas/repr v0.2.0/go.mod h1:Fr0507jx4eOXV7AlPV6AVZLYrLIuIeSOWtW57eE/O/4=
 github.com/alecthomas/repr v0.3.0 h1:NeYzUPfjjlqHY4KtzgKJiWd6sVq2eNUPTi34PiFGjY8=
