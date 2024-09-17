@@ -3,7 +3,7 @@ module github.com/Depado/gin-auth-example
 go 1.20
 
 require (
-	github.com/alecthomas/assert/v2 v2.10.0
+	github.com/alecthomas/assert/v2 v2.11.0
 	github.com/appleboy/gofight/v2 v2.1.2
 	github.com/buger/jsonparser v1.1.1
 	github.com/gin-contrib/sessions v1.0.1
