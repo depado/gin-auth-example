@@ -2,7 +2,6 @@ package main
 
 import (
 	"net/http"
-	"net/http/httptest"
 	"testing"
 
 	"github.com/alecthomas/assert/v2"
@@ -59,15 +58,17 @@ func Test_status(t *testing.T) {
 	var cookie string
 	g.POST("/login").
 		SetForm(gofight.H{"username": "hello", "password": "itsme"}).
-		Run(e, func(response gofight.HTTPResponse, rq gofight.HTTPRequest) {
-			assert.Equal(t, http.StatusOK, response.Code)
-			r := (*httptest.ResponseRecorder)(response)
+		Run(e, func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
+			assert.Equal(t, http.StatusOK, r.Code)
 			cookie = r.Header().Get("Set-Cookie")
 			assert.NotZero(t, cookie)
 		})
-	g.GET("/private/me").SetHeader(gofight.H{"Cookie": cookie}).Run(e, func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
-		assert.Equal(t, http.StatusOK, r.Code)
-	})
+
+	g.GET("/private/me").
+		SetHeader(gofight.H{"Cookie": cookie}).
+		Run(e, func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
+			assert.Equal(t, http.StatusOK, r.Code)
+		})
 }
 
 func Test_logout(t *testing.T) {
@@ -81,13 +82,15 @@ func Test_logout(t *testing.T) {
 	var cookie string
 	g.POST("/login").
 		SetForm(gofight.H{"username": "hello", "password": "itsme"}).
-		Run(e, func(response gofight.HTTPResponse, rq gofight.HTTPRequest) {
-			assert.Equal(t, http.StatusOK, response.Code)
-			r := (*httptest.ResponseRecorder)(response)
+		Run(e, func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
+			assert.Equal(t, http.StatusOK, r.Code)
 			cookie = r.Header().Get("Set-Cookie")
 			assert.NotZero(t, cookie)
 		})
-	g.GET("/logout").SetHeader(gofight.H{"Cookie": cookie}).Run(e, func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
-		assert.Equal(t, http.StatusOK, r.Code)
-	})
+
+	g.GET("/logout").
+		SetHeader(gofight.H{"Cookie": cookie}).
+		Run(e, func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
+			assert.Equal(t, http.StatusOK, r.Code)
+		})
 }
