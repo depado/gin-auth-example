@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
         with:
           go-version-file: "go.mod"
-      - uses: gwatts/go-coverage-action@2845595538a59d63d1bf55f109c14e104c6f7cb3 # v2
+      - uses: lazyguru/go-coverage-action@9b496d245c69f85ab8cef4ce57d857cc727506ee
         with:
           fail-coverage: never
           cover-pkg: ./...
