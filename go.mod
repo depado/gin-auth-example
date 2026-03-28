@@ -8,7 +8,7 @@ require (
 	github.com/alecthomas/assert/v2 v2.11.0
 	github.com/appleboy/gofight/v2 v2.2.1
 	github.com/buger/jsonparser v1.1.2
-	github.com/gin-contrib/sessions v1.0.4
+	github.com/gin-contrib/sessions v1.1.0
 	github.com/gin-gonic/gin v1.12.0
 )
 
@@ -46,6 +46,6 @@ require (
 	golang.org/x/crypto v0.48.0 // indirect
 	golang.org/x/net v0.51.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect
-	golang.org/x/text v0.34.0 // indirect
+	golang.org/x/text v0.35.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 )
