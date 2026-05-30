@@ -4,6 +4,8 @@ github.com/alecthomas/repr v0.5.2 h1:SU73FTI9D1P5UNtvseffFSGmdNci/O6RsqzeXJtP0Qs
 github.com/alecthomas/repr v0.5.2/go.mod h1:Fr0507jx4eOXV7AlPV6AVZLYrLIuIeSOWtW57eE/O/4=
 github.com/appleboy/gofight/v2 v2.2.1 h1:OOJrZ71tdOFDzyyBvP+h047w0EJHktqTo4mEOTDrKy0=
 github.com/appleboy/gofight/v2 v2.2.1/go.mod h1:dOz1A3YtfciapH897IQOAR6JfTFm0nwJctaDuJZiijY=
+github.com/appleboy/gofight/v2 v2.2.2 h1:rQcLkVa3bq81UeWNrqqw1Cg34Z1DtsSIhtkFu81cK5I=
+github.com/appleboy/gofight/v2 v2.2.2/go.mod h1:vNptRBbR0fFvnryIrof1kyANz5fprVJxTTEmMV4S1AY=
 github.com/buger/jsonparser v1.1.1 h1:2PnMjfWD7wBILjqQbt530v576A/cAbQvEW9gGIpYMUs=
 github.com/buger/jsonparser v1.1.1/go.mod h1:6RYKKt7H4d4+iWqouImQ9R2FZql3VbhNgx27UK13J/0=
 github.com/buger/jsonparser v1.1.2 h1:frqHqw7otoVbk5M8LlE/L7HTnIq2v9RX6EJ48i9AxJk=
