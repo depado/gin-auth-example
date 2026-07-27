@@ -7,7 +7,7 @@ toolchain go1.26.5
 require (
 	github.com/alecthomas/assert/v2 v2.11.0
 	github.com/appleboy/gofight/v2 v2.2.2
-	github.com/buger/jsonparser v1.2.0
+	github.com/buger/jsonparser v1.3.0
 	github.com/gin-contrib/sessions v1.1.0
 	github.com/gin-gonic/gin v1.12.0
 )

@@ -6,6 +6,8 @@ github.com/appleboy/gofight/v2 v2.2.2 h1:rQcLkVa3bq81UeWNrqqw1Cg34Z1DtsSIhtkFu81
 github.com/appleboy/gofight/v2 v2.2.2/go.mod h1:vNptRBbR0fFvnryIrof1kyANz5fprVJxTTEmMV4S1AY=
 github.com/buger/jsonparser v1.2.0 h1:4EFcvK1kD4jyj6YqNK6skK6w+y7FHHBR+XBCtxwu/6g=
 github.com/buger/jsonparser v1.2.0/go.mod h1:6RYKKt7H4d4+iWqouImQ9R2FZql3VbhNgx27UK13J/0=
+github.com/buger/jsonparser v1.3.0 h1:2RJHo4G3vFBQSYwwEAOfHNRlKIameh/HdbhPJ/zY/0A=
+github.com/buger/jsonparser v1.3.0/go.mod h1:6RYKKt7H4d4+iWqouImQ9R2FZql3VbhNgx27UK13J/0=
 github.com/bytedance/gopkg v0.1.4 h1:oZnQwnX82KAIWb7033bEwtxvTqXcYMxDBaQxo5JJHWM=
 github.com/bytedance/gopkg v0.1.4/go.mod h1:v1zWfPm21Fb+OsyXN2VAHdL6TBb2L88anLQgdyje6R4=
 github.com/bytedance/sonic v1.15.2 h1:90H+rcF/FwLXwfB1cudOLq/je83n683Utf4Cbp0xHCo=
