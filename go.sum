@@ -31,6 +31,8 @@ github.com/gin-contrib/sessions v1.1.0 h1:00mhHfNEGF5sP2fwxa98aRqj1FOJdL6IkR86n2
 github.com/gin-contrib/sessions v1.1.0/go.mod h1:TyYZDIs6qCQg2SOoYPgMT9pAkmZceVNEJMcv5qbIy60=
 github.com/gin-contrib/sessions v1.1.1 h1:/3ORwmsZ0h/Kcc9fekFrSSc6QXEifMscBLcS8lyQfqQ=
 github.com/gin-contrib/sessions v1.1.1/go.mod h1:h8ilnqzj7fPELlu4/rbFcZW/0SNYMXhm4X/KQv0i1G8=
+github.com/gin-contrib/sessions v1.1.2 h1:utWRqOHT/kbqxxqF/mtutV9wfGLi1+uu5YuvWUhj/Ow=
+github.com/gin-contrib/sessions v1.1.2/go.mod h1:qRxYwA/TYJw0wv28oFzs4gY/8G8z69id862SNgX9Gmw=
 github.com/gin-contrib/sse v1.1.1 h1:uGYpNwTacv5R68bSGMapo62iLTRa9l5zxGCps4hK6ko=
 github.com/gin-contrib/sse v1.1.1/go.mod h1:QXzuVkA0YO7o/gun03UI1Q+FTI8ZV/n5t03kIQAI89s=
 github.com/gin-gonic/gin v1.12.0 h1:b3YAbrZtnf8N//yjKeU2+MQsh2mY5htkZidOM7O0wG8=
@@ -112,6 +114,8 @@ golang.org/x/crypto v0.53.0 h1:QZ4Muo8THX6CizN2vPPd5fBGHyogrdK9fG4wLPFUsto=
 golang.org/x/crypto v0.53.0/go.mod h1:DNLU434OwVakk9PzuwV8w62mAJpRJL3vsgcfp4Qnsio=
 golang.org/x/crypto v0.55.0 h1:+KWHjbgOaAQ66dh/YlkZKHlz9ZUlq61AFirAR9ntP8M=
 golang.org/x/crypto v0.55.0/go.mod h1:uq0V9dE/fzQuJtbnL+2EhWOE63vo164FY8xqEnV9xis=
+golang.org/x/crypto v0.56.0 h1:GUh5Ii4J5jtcseSMiRqr1jXCNHoxjeV9Fmekc2oLy6Y=
+golang.org/x/crypto v0.56.0/go.mod h1:OMW5y6CY9l38uPLmxU6l6pwcXp1obtLo3e6gT7gQR2I=
 golang.org/x/net v0.56.0 h1:Rw8j/hFzGvJUZwNBXnAtf5sVDVt+65SK2C7IxCxZt5o=
 golang.org/x/net v0.56.0/go.mod h1:D3Ku6r+V6JROoZK144D2XfMHFcMq/0zSfLelVTCFKec=
 golang.org/x/net v0.57.0 h1:K5+3DljvIuDG9/Jv9rvyMywYNFCQ9RSUY6OOTTkT+tE=
