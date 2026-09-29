@@ -1,12 +1,12 @@
 module github.com/Depado/gin-auth-example
 
-go 1.26.0
+go 1.26.8
 
 toolchain go1.27.1
 
 require (
 	github.com/alecthomas/assert/v2 v2.11.0
-	github.com/appleboy/gofight/v2 v2.2.2
+	github.com/appleboy/gofight/v2 v2.2.3
 	github.com/buger/jsonparser v1.6.1
 	github.com/gin-contrib/sessions v1.1.2
 	github.com/gin-gonic/gin v1.12.0
