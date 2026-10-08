@@ -2,7 +2,7 @@ module github.com/Depado/gin-auth-example
 
 go 1.26.8
 
-toolchain go1.27.1
+toolchain go1.27.2
 
 require (
 	github.com/alecthomas/assert/v2 v2.11.0
